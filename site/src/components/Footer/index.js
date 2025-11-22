@@ -45,7 +45,7 @@ const Footer = () => {
             <li>
               <a
                 className="category-link"
-                href="https://github.com/meshery/play"
+                href="https://github.com/meshery-extensions/shape-builder"
               >
                 <img src={GithubIcon} alt="GitHub Icon" />
                 Github
@@ -98,7 +98,7 @@ const Footer = () => {
         </div>
         <div className="footer-links community">
           <h3 className="section-title">
-            <a className="title-link" href="https://meshery.io/community">
+            <a className="title-link" href="https://meshery.io/community/#discussion-forums">
               Community
             </a>
           </h3>
