@@ -1,12 +1,6 @@
 // /* global window */
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Wrapper,
-  CanvasContainer,
-  OutputBox,
-  StyledSVG,
-  CopyButton,
-} from "./shapeBuilder.styles";
+import { Wrapper, CanvasContainer, OutputBox, StyledSVG, CopyButton } from "./shapeBuilder.styles";
 import { Button, Typography, Box, CopyIcon } from "@sistent/sistent";
 import { SVG, extend as SVGextend } from "@svgdotjs/svg.js";
 import draw from "@svgdotjs/svg.draw.js";
@@ -66,16 +60,13 @@ const ShapeBuilder = () => {
 
     const points = getPlottedPoints(poly);
     if (!points) return;
-    const xs = points.map((p) => p[0]);
-    const ys = points.map((p) => p[1]);
+    const xs = points.map(p => p[0]);
+    const ys = points.map(p => p[1]);
 
     const width = Math.abs(Math.max(...xs) - Math.min(...xs));
     const height = Math.abs(Math.max(...ys) - Math.min(...ys));
 
-    poly.size(
-      width > height ? 520 : undefined,
-      height >= width ? 520 : undefined,
-    );
+    poly.size(width > height ? 520 : undefined, height >= width ? 520 : undefined);
     poly.move(0, 0);
     showCytoArray();
   };
@@ -188,59 +179,32 @@ const ShapeBuilder = () => {
           onDoubleClick={closeShape}
         >
           <defs>
-            <pattern
-              id="grid"
-              width="16"
-              height="16"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 16 0 L 0 0 0 16"
-                fill="none"
-                stroke="#797d7a"
-                strokeWidth="1"
-              />
+            <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
+              <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#797d7a" strokeWidth="1" />
             </pattern>
           </defs>
           <rect className="grid" width="100%" height="100%" fill="url(#grid)" />
         </StyledSVG>
         {error && (
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              color: "red",
-              backgroundColor: "white",
-              padding: "10px",
-              borderRadius: "5px",
-            }}
-          >
+          <div style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "red",
+            backgroundColor: "white",
+            padding: "10px",
+            borderRadius: "5px"
+          }}>
             {error}
           </div>
         )}
       </CanvasContainer>
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          gap: 2,
-          mt: 3,
-          mb: 3,
-          flexWrap: "wrap",
-        }}
-      >
-        <Button variant="contained" onClick={clearShape}>
-          Clear
-        </Button>
-        <Button variant="contained" onClick={closeShape}>
-          Close Shape
-        </Button>
-        <Button variant="contained" onClick={handleMaximize}>
-          Maximize
-        </Button>
+      <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 3, mb: 3, flexWrap: "wrap" }}>
+        <Button variant="contained" onClick={clearShape}>Clear</Button>
+        <Button variant="contained" onClick={closeShape}>Close Shape</Button>
+        <Button variant="contained" onClick={handleMaximize}>Maximize</Button>
       </Box>
 
       <OutputBox>

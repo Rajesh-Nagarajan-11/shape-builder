@@ -9,7 +9,7 @@ import { SistentThemeProviderWithoutBaseLine, Box } from "@sistent/sistent";
 
 const Kbd = styled.kbd`
   background-color: ${({ theme }) =>
-    theme.mode === "light" ? "#f4f4f4" : "#2b2b2b"};
+  theme.mode === "light" ? "#f4f4f4" : "#2b2b2b"};
   border: 1px solid
     ${({ theme }) => (theme.mode === "light" ? "#d1d5da" : "#444")};
   border-bottom-color: ${({ theme }) =>
