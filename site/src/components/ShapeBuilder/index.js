@@ -79,7 +79,7 @@ const ShapeBuilder = () => {
       poly.draw("param", "snapToGrid", 0.001);
     }
 
-    if (e.key === "Enter") {
+    if (e.key === "Enter" || e.key === "Escape") {
       poly.draw("done");
       poly.fill("#00B39F");
       showCytoArray();
@@ -172,7 +172,12 @@ const ShapeBuilder = () => {
   return (
     <Wrapper>
       <CanvasContainer>
-        <StyledSVG ref={boardRef} width="100%" height="100%">
+        <StyledSVG
+          ref={boardRef}
+          width="100%"
+          height="100%"
+          onDoubleClick={closeShape}
+        >
           <defs>
             <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
               <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#797d7a" strokeWidth="1" />
