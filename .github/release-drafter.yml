@@ -30,7 +30,7 @@ categories:
   - title: 📖 Documentation
     label: 'area/docs'
   - title: 🔒 Security
-    label: 'security'  
+    label: 'security'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 template: |
   ## What's New
