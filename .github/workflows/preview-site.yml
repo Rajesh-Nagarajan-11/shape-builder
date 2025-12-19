@@ -17,7 +17,7 @@ jobs:
       - name: Download Site dir
         uses: actions/download-artifact@v4
         with:
-          name: site-dir
+          name: public-dir
           github-token: ${{ secrets.RELEASE_NOTES_PATN }}
           repository: ${{ github.event.workflow_run.repository.full_name }}
           run-id: ${{ github.event.workflow_run.id }}
@@ -25,8 +25,8 @@ jobs:
       - name: Unzip Site
         run: |
           rm -rf ./docs/_site
-          unzip site-dir.zip
-          rm -f site-dir.zip
+          unzip public-dir.zip
+          rm -f public-dir.zip
 
       - name: Deploy to Netlify
         id: netlify
