@@ -17,7 +17,6 @@ jobs:
       - name: Download Site dir
         uses: dawidd6/action-download-artifact@v6
         with:
-          github_token: ${{ secrets.GH_ACCESS_TOKEN }}
           workflow: build-and-preview-site.yml
           run_id: ${{ github.event.workflow_run.id }}
           name: site-dir
